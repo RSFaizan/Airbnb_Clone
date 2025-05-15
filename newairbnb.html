@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            padding:0px;
+            margin:0px;
+            box-sizing: border-box;
+        }
+        .b{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: white; /* Add background for better visibility */
+            z-index: 100; /* Ensure it stays on top */
+            padding: 1rem;
+        }
+        .b1{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .p1{
+            height: auto;
+            width: auto;
+            margin-left: 0.5rem;
+        }
+        .p1 img{
+            max-width: 150px;
+            height: auto;
+        }
+        .p2{
+            display: flex; /* Hide on smaller screens, will be toggled */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40%;
+            margin-top: 1rem;
+        }
+        .uphome{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0.5rem;
+            width: 100%;
+            margin-left: 50%;
+        }
+        .uphome li{
+            padding: 0.5rem;
+
+        }
+        .downhome{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            border: 1px solid lightgray;
+            border-radius: 40px;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .bor{
+            padding: 0.5rem;
+        }
+        .bor:hover{
+            background-color: rgba(240, 248, 255, 0.5);
+            border-radius: 20px;
+        }
+        .sea{
+            background-color: rgb(255, 161, 177);
+            border-radius: 30px;
+            padding: 0.5rem;
+        }
+        .p3{
+            display: flex;
+            align-items: center;
+        }
+        .p3 ul{
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            align-items: center;
+        }
+        .fon{
+            margin-right: 1rem;
+        }
+        .earth{
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+        .menu{
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 30px;
+        }
+        .menu:hover{
+            background-color: lightgray;
+        }
+        .b2{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            overflow-x: auto; /* Enable horizontal scrolling for icons */
+        }
+        .icons{
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            /* justify-content: space-evenly; */
+        }
+        .icons li{
+            padding: 0.5rem;
+            border-radius: 20px;
+        }
+        .icons li:hover{
+            background-color: rgb(154, 206, 251);
+        }
+        .b21{
+            width:80%;
+            overflow-x: scroll;
+        }
+        .b22{
+            width:20%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 1rem;
+            padding: 0.5rem;
+        }
+        .filter{
+            font-size: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        li{
+            list-style: none;
+        }
+       
+        
+     
+        .mar{
+        margin-bottom: 1rem;
+    }
+    .footer{
+        margin-top:20px;
+        height:20vh;
+        width:100%;
+        /* border:2px solid red; */
+        margin-left:10px ;
+    }
+    .footer{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* border:2px solid black; */
+    }
+    .btn{
+        padding:1rem;
+        background-color: rgb(39, 39, 147);
+        color:white;
+        margin-top: 1rem;
+        border-radius: 20px;
+        font-size:1rem;
+    }
+    .d1{
+        height:15%;
+        width:95%;
+        /* border:2px solid red; */
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:flex-start;
+        /* margin-left: 1rem; */
+    }
+    .des{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(244, 242, 242);
+        border:none;
+        width:98%;
+        padding-left: 3rem;
+    }
+    .con{
+        width:95%;
+       position: relative;
+       left:2.5%;
+
+    }
+    .d2{
+        height:30vh;
+        width:95%;
+        /* border:2px solid black; */
+        display: grid;
+        grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: repeat(3,1fr 1fr 1fr);
+        row-gap: 3rem;
+        margin-top: 2rem;
+    }
+    .d3{
+        height:30vh;
+        width:95%;
+        /* border:2px solid black; */
+        display: grid;
+        grid-template-columns:1fr 1fr 1fr;
+        grid-template-rows: repeat(3,1fr 1fr 1fr 1fr 1fr 1fr);
+        row-gap: 1rem;
+        margin-top: 2rem;
+    }
+    .d4{
+        height:10vh;
+        width:95%;
+        /* border:2px solid red; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .sea{
+        background-color: rgb(255, 161, 177);
+        border-radius: 30px;
+        margin-left: 1rem;
+    }
+    .divb{
+        display:flex;
+        justify-content: space-between;
+    }
+    .container{
+        padding-top:15rem;
+        /* height:50%; */
+        width:100%;
+        /* border:2px solid black; */
+        overflow-y:hidden;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap:10px;
+        margin-right: 4rem;
+        margin-top: 4rem;
+    }
+    img{
+        border-radius: 20px;
+    }
+    .com{
+        width: calc(50% - 5px); /* Two columns on smaller screens */
+            margin-top: 1rem;
+           
+    }
+       
+        /* Media query for larger screens */
+        @media (min-width: 768px) {
+            .b{
+                left: 3rem;
+                width: 95%;
+            }
+            .p2{
+                display: flex;
+                flex-direction:column;
+                justify-content: center;
+                align-items: center;
+                width: auto;
+                margin-top: 0;
+                margin-left: 5rem;
+                margin-right: auto;
+            }
+            .uphome{
+                justify-content: flex-start;
+                gap: 1rem;
+                
+                
+            }
+            .downhome{
+                width: 50vw;
+                margin-left: 10%;
+            }
+            .container{
+                padding-top: 8rem;
+                justify-content: space-around;
+                
+            }
+            .com{
+                width: 20%;
+            }
+            .des {
+                align-items: flex-start; /* Align the container content to the start on larger screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <div class="b">
+            <div class="b1">
+                <div class="p1">
+                <img src="Assets/Airbnblogo.png" alt="" height="100" width="150">
+                </div>
+                <div class="p2">
+                    <div>
+                        <ul class="uphome">
+                            <li><b>Home</b></li>
+                            <li><b>Experience</b></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="downhome">
+                            <li class="bor">Where Search Destination</li>
+                            <li class="bor">Check in Dates</li>
+                            <li class="bor">Check out Dates</li>
+                            <li class="bor">Who Guests</li>
+                            <li class="sea"><i class="fa-solid fa-magnifying-glass"></i></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p3"><ul style="display: flex;">
+                    <li class="fon"><b>Airbnb Your Home</b></li>
+                    <li class="earth"><i class="fa-solid fa-globe"></i></li>
+                    <li><button class="menu"><i class="fa-solid fa-bars" class="e1"></i><i class="fa-regular fa-circle-user" class="e2"></i></button></li>
+                </ul></div>
+            </div>
+            <div class="b2">
+                <div class="b21">
+                    <ul class="icons">
+                        <li><i class="fa-solid fa-house"></i></li>
+                        <li><i class="fa-solid fa-umbrella-beach"></i></li>
+                        <li><i class="fa-solid fa-hospital"></i></li>
+                        <li><i class="fa-solid fa-restroom"></i></li>
+                        <li><i class="fa-solid fa-square-parking"></i></li>
+                        <li><i class="fa-solid fa-person-swimming"></i></li>
+                        <li><i class="fa-regular fa-circle-question"></i></li>
+                        <li><i class="fa-solid fa-globe"></i></li>
+                        <li><i class="fa-regular fa-circle-user"></i></li>
+                        <li><i class="fa-solid fa-restroom"></i></li>
+                        <li><i class="fa-solid fa-house"></i></li>
+                        <li><i class="fa-solid fa-umbrella-beach"></i></li>
+                        <li><i class="fa-solid fa-hospital"></i></li>
+                        <li><i class="fa-solid fa-restroom"></i></li>
+                        <li><i class="fa-solid fa-square-parking"></i></li>
+                        <li><i class="fa-solid fa-person-swimming"></i></li>
+                        <li><i class="fa-regular fa-circle-question"></i></li>
+                        <li><i class="fa-solid fa-globe"></i></li>
+                        <li><i class="fa-regular fa-circle-user"></i></li>
+                        <li><i class="fa-solid fa-restroom"></i></li>
+                    </ul>
+                </div>
+                <div class="b22">
+                    <button class="filter mar"><i class="fa-solid fa-sort"></i></button>
+                    <b class="mar">Prices Include all fees</b>
+                </div>
+            </div>
+        </div>
+       <div class="container">
+        <div class="div1 com">
+            <div class="diva"><img src="Assets/pic1.jpeg" alt="" height="250" width="300"></div>
+            <div class="divb">
+                <div class="col1"><h3>Goa, India</h3><p>500 Kilometres away</p><p>18-24</p><h4>60,000</h4></div>
+                <div class="col2"><h3><i class="fa-regular fa-star"></i> 4.5</h3></div>
+            </div>
+        </div>
+        
+        <div class="div2 com">
+            <div class="diva"><img src="Assets/pic2.jpeg" alt="" height="250" width="300"></div>
+            <div class="divb">
+                <div class="col1"><h3>Kerala, India</h3><p>600 Kilometres away</p><p>22-27</p><h4>70,000</h4></div>
+                <div class="col2"><h3><i class="fa-regular fa-star"></i> 4.7</h3></div>
+            </div>
+        </div>
+        
+        <div class="div3 com">
+            <div class="diva"><img src="Assets/pic3.jpg" alt="" height="250" width="300"></div>
+            <div class="divb">
+                <div class="col1"><h3>Jaipur, India</h3><p>750 Kilometres away</p><p>15-20</p><h4>50,000</h4></div>
+                <div class="col2"><h3><i class="fa-regular fa-star"></i> 4.3</h3></div>
+            </div>
+        </div>
+        <div class="div4 com">
+            <div class="diva"><img src="Assets/pic4.jpg" alt="" height="250" width="300"></div>
+            <div class="divb">
+                <div class="col1"><h3>Rishikesh, India</h3><p>800 Kilometres away</p><p>25-30</p><h4>55,000</h4></div>
+                <div class="col2"><h3><i class="fa-regular fa-star"></i> 4.6</h3></div>
+            </div>
+        </div>
+        
+        <div class="div5 com">
+            <div class="diva"><img src="Assets/pic4.jpg" alt="" height="250" width="300"></div>
+            <div class="divb">
+                <div class="col1"><h3>Shimla, India</h3><p>620 Kilometres away</p><p>20-25</p><h4>48,000</h4></div>
+                <div class="col2"><h3><i class="fa-regular fa-star"></i> 4.2</h3></div>
+            </div>
+        </div>
+        
+        <div class="div6 com">
+            <div class="diva"><img src="Assets/pic3.jpg" alt="" height="250" width="300"></div>
+            <div class="divb">
+                <div class="col1"><h3>Udaipur, India</h3><p>700 Kilometres away</p><p>22-27</p><h4>58,000</h4></div>
+                <div class="col2"><h3><i class="fa-regular fa-star"></i> 4.5</h3></div>
+            </div>
+        </div>
+        
+        <div class="div7 com">
+            <div class="diva"><img src="Assets/pic2.jpeg" alt="" height="250" width="300"></div>
+            <div class="divb">
+                <div class="col1"><h3>Pondicherry, India</h3><p>680 Kilometres away</p><p>18-24</p><h4>52,000</h4></div>
+                <div class="col2"><h3><i class="fa-regular fa-star"></i> 4.3</h3></div>
+            </div>
+        </div>
+        
+        <div class="div8 com">
+            <div class="diva"><img src="Assets/pic1.jpeg" alt="" height="250" width="300"></div>
+            <div class="divb">
+                <div class="col1"><h3>Munnar, India</h3><p>570 Kilometres away</p><p>21-26</p><h4>50,000</h4></div>
+                <div class="col2"><h3><i class="fa-regular fa-star"></i> 4.8</h3></div>
+            </div>
+        </div>
+        <div class="div9 com">
+            <div class="diva"><img src="Assets/pic4.jpg" alt="" height="250" width="300"></div>
+            <div class="divb">
+                <div class="col1"><h3>Mahabalipuram, India</h3><p>640 Kilometres away</p><p>24-29</p><h4>56,000</h4></div>
+                <div class="col2"><h3><i class="fa-regular fa-star"></i> 4.4</h3></div>
+            </div>
+        </div>
+        
+        <div class="div10 com">
+            <div class="diva"><img src="Assets/pic2.jpeg" alt="" height="250" width="300"></div>
+            <div class="divb">
+                <div class="col1"><h3>Darjeeling, India</h3><p>780 Kilometres away</p><p>19-23</p><h4>62,000</h4></div>
+                <div class="col2"><h3><i class="fa-regular fa-star"></i> 4.7</h3></div>
+            </div>
+        </div>
+        
+        <div class="div11 com">
+            <div class="diva"><img src="Assets/pic1.jpeg" alt="" height="250" width="300"></div>
+            <div class="divb">
+                <div class="col1"><h3>Kodaikanal, India</h3><p>590 Kilometres away</p><p>21-26</p><h4>54,000</h4></div>
+                <div class="col2"><h3><i class="fa-regular fa-star"></i> 4.6</h3></div>
+            </div>
+        </div>
+        
+        <div class="div12 com">
+            <div class="diva"><img src="Assets/pic3.jpg" alt="" height="250" width="300"></div>
+            <div class="divb">
+                <div class="col1"><h3>Leh, India</h3><p>1100 Kilometres away</p><p>28-32</p><h4>75,000</h4></div>
+                <div class="col2"><h3><i class="fa-regular fa-star"></i> 4.8</h3></div>
+            </div>
+        </div>
+        
+        <div class="div13 com">
+            <div class="diva"><img src="Assets/pic1.jpeg" alt="" height="250" width="300"></div>
+            <div class="divb">
+                <div class="col1"><h3>Coorg, India</h3><p>680 Kilometres away</p><p>22-27</p><h4>60,000</h4></div>
+                <div class="col2"><h3><i class="fa-regular fa-star"></i> 4.5</h3></div>
+            </div>
+        </div>
+        
+        <div class="div14 com">
+            <div class="diva"><img src="Assets/pic2.jpeg" alt="" height="250" width="300"></div>
+            <div class="divb">
+                <div class="col1"><h3>Jaisalmer, India</h3><p>850 Kilometres away</p><p>26-31</p><h4>66,000</h4></div>
+                <div class="col2"><h3><i class="fa-regular fa-star"></i> 4.7</h3></div>
+            </div>
+        </div>
+        
+        <div class="div15 com">
+            <div class="diva"><img src="Assets/pic4.jpg" alt="" height="250" width="300"></div>
+            <div class="divb">
+                <div class="col1"><h3>Andaman & Nicobar Islands, India</h3><p>1250 Kilometres away</p><p>30-35</p><h4>80,000</h4></div>
+                <div class="col2"><h3><i class="fa-regular fa-star"></i> 4.9</h3></div>
+            </div>
+        </div>
+                        
+        <!-- <div class="div16 com"><img src="pic1.jpeg" alt="" height="250" width="300"><h3>Mandrem India</h3><p>541 Kilometres away</p><p>20-25</p><h4>65,000</h4></div>
+        <div class="div17 com"><img src="pic1.jpeg" alt="" height="250" width="300"><h3>Mandrem India</h3><p>541 Kilometres away</p><p>20-25</p><h4>65,000</h4></div>
+        <div class="div18 com"><img src="pic1.jpeg" alt="" height="250" width="300"><h3>Mandrem India</h3><p>541 Kilometres away</p><p>20-25</p><h4>65,000</h4></div>
+        <div class="div19 com"><img src="pic1.jpeg" alt="" height="250" width="300"><h3>Mandrem India</h3><p>541 Kilometres away</p><p>20-25</p><h4>65,000</h4></div>
+        <div class="div20 com"><img src="pic1.jpeg" alt="" height="250" width="300"><h3>Mandrem India</h3><p>541 Kilometres away</p><p>20-25</p><h4>65,000</h4></div> -->
+        <div class="footer">
+            <h1>Contining Exploring Farms</h1>
+            <button class="btn">Show more</button>
+        </div>
+        <div class="des">
+            <div class="d1"><h2>Inspiration for Future Gateway</h2>
+                <div class="div11">
+                    <span><u>Unique Stays</u></span>
+                    <span><u>Catogries</u></span>      
+                </div>
+           </div>
+          <hr>
+            <div class="d2">
+                <div class="div1"><b>Yurt Rentals</b><br>United States</div>
+                <div class="div2"><b>Yurt Rentals</b><br>United States</div>
+                <div class="div3"><b>Farm Houses</b><br>United States</div>
+                <div class="div4"><b>Farm Cottages</b><br>United States</div>
+                <div class="div5"><b>Castle Rentals</b><br>United States</div>
+                <div class="div6"><b>Luxury Cabins</b><br>United States</div>
+                <div class="div7"><b>HouseBoat</b><br>United States</div>
+                <div class="div8"><b>Private Island Rentals</b><br>United States</div>
+                <div class="div9"><b>Holiday Chalets</b><br>United States</div>
+                <div class="div10"><b>Cabin Rentals</b><br>United States</div>
+                <div class="div11"><b>Villa</b><br>United States</div>
+                <div class="div12"><b>Bungalow Rentals</b><br>United States</div>
+                <div class="div13"><b>HouseBoat</b><br>United States</div>
+                <div class="div14"><b>Private Island Rentals</b><br>United States</div>
+                <div class="div15"><b>Holiday Chalets</b><br>United States</div>
+                <div class="div16"><b>Cabin Rentals</b><br>United States</div>
+                <div class="div17"><b>Villa</b><br>United States</div>
+                <div class="div18"><b>More</b><br>United States</div>
+            </div>
+            <div class="d3">
+                <div class="div21"><b>Support</b></div>
+                <div class="div21">Support</div>
+                <div class="div22">Help Centre</div>
+                <div class="div23">AirCover</div>
+                <div class="div24">Anti-discrimination</div>
+                <div class="div25">Disability support</div>
+                <div class="div26">Cancellation options</div>
+                <div class="div27">Report neighbourhood concern</div>
+                <div class="div28">Hosting</div>
+                <div class="div29">Airbnb your home</div>
+                <div class="div210">AirCover for Hosts</div>
+                <div class="div211">Hosting resources</div>
+                <div class="div212">Community forum</div>
+                <div class="div213">Hosting responsibly</div>
+                <div class="div214">Join a free Hosting class</div>
+                <div class="div215">Find a co-host</div>
+                <div class="div216">Airbnb</div>
+                <div class="div217">Newsroom</div>
+                <div class="div218">New features</div>
+                <div class="div219">Careers</div>
+                <div class="div220">Investors</div>
+                
+    
+            </div>
+            <div class="d4">
+                <div class="d41">© 2025 Airbnb, Inc. · Privacy · Terms · Sitemap · Company details</div>
+                <div class="d42">
+                English (IN)
+                ₹ INR</div></div>
+                
+        </div>
+        </div>
+    </div>
+   
+</body>
+</html>
